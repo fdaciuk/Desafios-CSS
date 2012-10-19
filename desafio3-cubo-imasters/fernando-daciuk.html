@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Desafio Bernard de Luna 3 - Cubo Imasters só com CSS</title>
+
+	<style type="text/css">
+		@-webkit-keyframes giracubo {
+			from {
+				-webkit-transform: rotateX(0deg) rotateY(270deg);
+			}
+
+			to {
+				-webkit-transform: rotateX(360deg) rotateY(0deg);
+			}
+		}
+
+		#container {
+			-webkit-perspective: 1000;
+			-webkit-perspective-origin: 50% 200px;
+		}
+
+		#imasters-cube {
+			height: 400px;
+			margin: 120px auto;
+			position: relative;
+			width: 400px;
+			-webkit-transform-style: preserve-3d;
+
+			-webkit-animation-name: giracubo;
+			-webkit-animation-duration: 5s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-direction: alternate;
+			
+
+			-webkit-transform: rotateX(0deg) rotateY(0deg);
+		}
+
+		#imasters-cube div {
+			background-color: #289DAD;
+			border: 1px solid #fff;
+			height: 360px;
+			padding: 20px;
+			position: absolute;
+			width: 360px;
+		}
+
+		#imasters-cube div:before {
+			border: 1px solid #fff;
+			border-width: 0 1px;
+			bottom: 0;
+			content: '';
+			left: 50%;
+			margin-left: -60px;
+			position: absolute;
+			top: 0;
+			width: 120px;
+		}
+
+		#imasters-cube div:after {
+			border: 1px solid #fff;
+			border-width: 1px 0;
+			bottom: 0;
+			content: '';
+			height: 120px;
+			left: 0;
+			margin-top: -60px;
+			position: absolute;
+			right: 0;
+			top: 50%;
+		}
+
+		#imasters-cube .right,
+		#imasters-cube .back {
+			background-color: #165962;
+		}
+
+		.top {
+			position: relative;
+			-webkit-transform: rotateX(90deg) translateZ(200px);
+		}
+
+		.top:before {
+			background-image:
+			-webkit-gradient(linear, 0 65.5%, 0 64%, from(#f00), to(transparent), color-stop(.1,transparent));
+		}
+
+		.front {
+			background: green;
+			-webkit-transform: translateZ(200px);
+		}
+
+		.front:before {
+			background: orange;
+		}
+
+		.right {
+			-webkit-transform: rotateY(90deg) translateZ(200px);
+		}
+
+		.back {
+			-webkit-transform: rotateY(180deg) translateZ(200px);
+		}
+
+		.left {
+			-webkit-transform: rotateY(-90deg) translateZ(200px);
+		}
+
+		.bottom {
+			-webkit-transform: rotateX(-90deg) translateZ(200px) rotate(180deg);
+		}
+	</style>
+</head>
+<body>
+ <div id="container">
+  <div id="imasters-cube">
+    <div class="front"></div>
+    <div class="back"></div>
+    <div class="top"></div>
+    <div class="right"></div>
+    <div class="bottom"></div>
+    <div class="left"></div>
+  </div>
+</div>
+</body>
+</html>
